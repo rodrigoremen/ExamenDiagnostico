@@ -1,3 +1,4 @@
+
 const resp = fetch('https://reqres.in/api/users?page=1');
 resp.then(response => response.json())
 .then((json)=>{
@@ -19,22 +20,20 @@ resp.then(response => response.json())
           </div>
         </div>
         <div
-          class="mt-8 inline-flex items-center gap-2 text-indigo-600 sm:mt-12 lg:mt-16"
+          class="inline-flex gap-2 "
         >
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"
         onClick="searchUser(${element.id})">
         Detalles
         </button>
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="button"
-        onClick="">
+        onclick='delUsers(${element.id})'>
         Eliminar
         </button>
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button"
         onClick="">
         Actualizar
         </button>
-        
-      
         </div>
       </a> 
       `;
@@ -55,6 +54,33 @@ const searchUser = id => {
   modal.show();
 }
 
-const deleteUser = id =>{
-  
+const delUsers = (idUser) => {
+  fetch('https://reqres.in/api/users/' + idUser, {
+      method: 'DELETE',
+      headers: {
+          "Content-Type": "application/json",
+      }
+  })
+      .then(res => {
+          if (res.status == 204) {
+              Swal.fire({
+                  title: 'Usuario eliminado',
+                  icon: 'success',
+                  showDenyButton: false,
+                  showCancelButton: false,
+                  showConfirmButton: false,
+                  timer: 1500
+              })
+          } else {
+              Swal.fire({
+                  title: 'Error al eliminar',
+                  icon: 'error',
+                  showDenyButton: false,
+                  showCancelButton: false,
+                  showConfirmButton: false,
+                  timer: 1500
+              })
+          }
+
+      })
 }

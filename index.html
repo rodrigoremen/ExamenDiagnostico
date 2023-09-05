@@ -12,21 +12,24 @@
 </head>
 
 <body>
-  <h1 class="text-3xl text-center font-bold text-green-500">
-   Examen Diagnostico
+  <h1 class="text-3xl text-center font-bold text-blue-500">
+    Examen Diagnostico
   </h1>
-  <div class="grid grid-cols-3 gap-4 py-6 px-6 te" id="container">
+  <div class="flex justify-between">
   </div>
+  <div class="grid grid-cols-2 gap-4 py-6 px-6 te" id="container">
+  </div>
+
+  <!-- modales -->
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles</h1>
-          
+
           <button type="button" class="btn-close btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
-            <svg fill="#000000" height="15px" width="15px" version="1.1" id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 460.775 460.775" xml:space="preserve">
+            <svg fill="#000000" height="15px" width="15px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
               <g id="SVGRepo_iconCarrier">
@@ -44,6 +47,8 @@
     </div>
   </div>
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
